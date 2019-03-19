@@ -14,7 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "MorningTrain\\LaravelReact\\": "src/"
+      "MorningTrain\\Laravel\\Support\\": "src/"
     }
   },
   "require": {

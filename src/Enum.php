@@ -1,6 +1,6 @@
 <?php
 
-namespace MorningTrain\LaravelSupport;
+namespace MorningTrain\Laravel\Support;
 
 use Illuminate\Support\Str;
 

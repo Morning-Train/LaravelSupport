@@ -1,6 +1,6 @@
 <?php
 
-namespace MorningTrain\LaravelSupport\Eloquent\Tree;
+namespace MorningTrain\Laravel\Support\Eloquent\Tree;
 
 use Illuminate\Database\Eloquent\Model;
 

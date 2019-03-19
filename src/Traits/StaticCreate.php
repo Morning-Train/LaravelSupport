@@ -1,6 +1,6 @@
 <?php
 
-namespace MorningTrain\LaravelSupport\Traits;
+namespace MorningTrain\Laravel\Support\Traits;
 
 use \ReflectionClass;
 

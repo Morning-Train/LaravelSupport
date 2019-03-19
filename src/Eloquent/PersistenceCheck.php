@@ -1,6 +1,6 @@
 <?php
 
-namespace MorningTrain\LaravelSupport\Eloquent;
+namespace MorningTrain\Laravel\Support\Eloquent;
 
 trait PersistenceCheck
 {
