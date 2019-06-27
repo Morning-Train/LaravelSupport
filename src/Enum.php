@@ -2,14 +2,17 @@
 
 namespace MorningTrain\Laravel\Support;
 
-use Illuminate\Support\Str;
-
 abstract class Enum
 {
     public static function all()
     {
         $reflection = new \ReflectionClass(static::class);
         return $reflection->getConstants();
+    }
+
+    public static function random()
+    {
+        return static::all()[array_rand(static::all(), 1)];
     }
 
     public static function values()
