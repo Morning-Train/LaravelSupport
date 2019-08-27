@@ -2,6 +2,8 @@
 
 namespace MorningTrain\Laravel\Support;
 
+use Illuminate\Support\Str;
+
 abstract class Enum
 {
     public static function all()
@@ -34,4 +36,60 @@ abstract class Enum
         $all = static::all();
         return array_shift($all);
     }
+
+    public static function options()
+    {
+        $keys = static::$by_keys ?
+            static::keys() :
+            static::values();
+
+        return array_reduce($keys, function ($acc, $value) {
+            $acc[$value] = static::translate($value);
+            return $acc;
+        }, []);
+    }
+
+    ////////////////////////////////
+    /// Translations
+    ////////////////////////////////
+
+    static $namespace = 'enums';
+
+    public static function basename()
+    {
+        $className = class_basename(static::class);
+
+        return strtolower(Str::snake($className));
+    }
+
+    public static function namespace()
+    {
+        return static::$namespace . '.' . static::basename();
+    }
+
+    public static function translate($value)
+    {
+        $key     = static::namespace() . '.' . $value;
+        $default = ucfirst(Str::studly($value));
+
+        return ($trans = trans($key)) === $key ? $default : $trans;
+    }
+
+    ////////////////////////////////
+    /// Exporting
+    ////////////////////////////////
+
+    static $export	= false;
+    static $raw		= false;
+    static $by_keys	= false;
+
+    public static function export()
+    {
+        if (static::$export) {
+            return static::$raw ?
+                static::all() :
+                static::options();
+        }
+    }
+
 }
