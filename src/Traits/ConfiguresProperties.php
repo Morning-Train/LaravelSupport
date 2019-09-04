@@ -2,6 +2,8 @@
 
 namespace MorningTrain\Laravel\Support\Traits;
 
+use Illuminate\Support\Arr;
+
 trait ConfiguresProperties
 {
 
@@ -12,7 +14,7 @@ trait ConfiguresProperties
 
     public function config(array $config)
     {
-        foreach (array_only($config, $this->getConfigurableProperties()) as $key => $value) {
+        foreach (Arr::only($config, $this->getConfigurableProperties()) as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = $value;
             }
