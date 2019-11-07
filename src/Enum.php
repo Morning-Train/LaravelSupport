@@ -17,6 +17,15 @@ abstract class Enum
         return static::all()[array_rand(static::all(), 1)];
     }
 
+    public static function getValue(string $key, $default = null)
+    {
+        $key = "static::{$key}";
+
+        return defined($key) ?
+            constant($key) :
+            $default;
+    }
+
     public static function keys()
     {
         return array_keys(static::all());
