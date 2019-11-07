@@ -17,6 +17,11 @@ abstract class Enum
         return static::all()[array_rand(static::all(), 1)];
     }
 
+    public static function keys()
+    {
+        return array_keys(static::all());
+    }
+
     public static function values()
     {
         return array_values(static::all());
