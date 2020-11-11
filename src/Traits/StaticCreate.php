@@ -11,9 +11,9 @@ trait StaticCreate
      * @param array ...$arguments
      * @return static
      */
-    public static function create(...$arguments)
+    public static function create()
     {
-        return (new ReflectionClass(static::class))->newInstanceArgs($arguments);
+        return (new ReflectionClass(static::class))->newInstanceArgs(func_get_args());
     }
 
 }
