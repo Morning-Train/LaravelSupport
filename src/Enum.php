@@ -106,4 +106,11 @@ abstract class Enum
         }
     }
 
+    /**
+     * @deprecated
+     */
+    public static function label($value) {
+        return static::translate($value);
+    }
+
 }
